@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS todos;
+CREATE DATABASE todos;
+
+\c todos;
+
+CREATE TABLE items (
+  ID SERIAL PRIMARY KEY,
+  text VARCHAR,
+  complete BOOLEAN
+);
