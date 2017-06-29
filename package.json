@@ -3,18 +3,27 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "supervisor ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.8.1",
-    "pg": "^6.1.0",
+    "@rtorr/ajax-only": "github:rtorr/ajax-only",
+    "babel-core": "^6.2.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.1.18",
+    "body-parser": "1.17.2",
+    "cookie-parser": "1.4.3",
+    "express": "^4.15.3",
+    "express-react-views": "^0.10.2",
+    "lodash": "^4.15.0",
+    "logger": "0.0.1",
+    "morgan": "1.8.2",
+    "pg": "6.4.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "serve-favicon": "~2.4.2"
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "webpack": "^2.2.1"
   }
 }
