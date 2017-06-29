@@ -26,8 +26,8 @@ router.get('/', (req, res, next) => {
     // After all data is returned, close connection and return results
     query.on('end', () => {
       done();
-      // return res.json(results);
-      return res.render('todos', { results });
+      return res.json(results);
+      // return res.render('todos', { results });
     });
   });
 });

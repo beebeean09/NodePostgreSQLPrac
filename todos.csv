@@ -1,5 +1,12 @@
 id,text,complete
-3,clothes,false
-4,shower,true
-5,shop,false
-6,sleep,true
+0,wash dog,false
+1,cook dinner,true
+2,wash car,false
+3,shop clothes,false
+4,water plants,true
+5,buy cake,false
+6,clean fridge,true
+7,buy gift,false
+8,buy milk,true
+9,garden,false
+10,pick up sister,true

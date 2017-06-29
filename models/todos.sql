@@ -12,4 +12,4 @@ CREATE TABLE items (
 -- INSERT INTO items (text, complete)
 --   VALUES ('Wash Car', false);
 
-\copy items(id, text, complete) FROM './todos1.csv' DELIMITER ',' CSV HEADER;
+\copy items(id, text, complete) FROM './todos.csv' DELIMITER ',' CSV HEADER;

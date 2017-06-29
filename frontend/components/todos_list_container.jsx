@@ -3,14 +3,14 @@ import { fetchAllTodos,
   updateTodo,
   createTodo,
   deleteTodo } from '../actions/todos_actions';
-import { connect } from 'redux';
+import { connect } from 'react-redux';
 import TodosList from './todos_list';
 
 const mapStateToProps = (state) => ({
-  state: state.todos
+  todos: state.todos.todos
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchTodo: (id) => dispatch(fetchTodo(id)),
   fetchAllTodos: () => dispatch(fetchAllTodos()),
   createTodo: (todo) => dispatch(createTodo(todo)),

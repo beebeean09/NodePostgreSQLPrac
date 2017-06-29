@@ -1,4 +1,5 @@
 import React from 'react';
+import TodosListItem from './todos_list_item';
 
 class TodosList extends React.Component {
   constructor(props) {
@@ -6,17 +7,23 @@ class TodosList extends React.Component {
 
   }
 
+  componentDidMount() {
+    debugger;
+    this.props.fetchAllTodos();
+  }
+
   render() {
-    const todos = this.props.todos.map((todo, idx) => (
-      <TodosListItem
-        key={idx}
-        todo={todo}/>
-    ));
+    debugger;
+    const allTodos = (this.props.todos) ? this.props.todos.map((todo, idx) => (
+        <TodosListItem
+          key={idx}
+          todo={todo}/>
+      )) : <div></div>;
 
     return(
       <div>
         TodosList
-        {todos}
+        {allTodos}
       </div>
     );
   }
