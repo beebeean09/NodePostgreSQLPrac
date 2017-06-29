@@ -18218,13 +18218,11 @@ var TodosList = function (_React$Component) {
   _createClass(TodosList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      debugger;
       this.props.fetchAllTodos();
     }
   }, {
     key: 'render',
     value: function render() {
-      debugger;
       var allTodos = this.props.todos ? this.props.todos.map(function (todo, idx) {
         return _react2.default.createElement(_todos_list_item2.default, {
           key: idx,

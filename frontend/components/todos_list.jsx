@@ -8,12 +8,10 @@ class TodosList extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchAllTodos();
   }
 
   render() {
-    debugger;
     const allTodos = (this.props.todos) ? this.props.todos.map((todo, idx) => (
         <TodosListItem
           key={idx}
