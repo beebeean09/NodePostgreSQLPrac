@@ -22,10 +22,10 @@ export const createTodo = (todo) => (
   })
 );
 
-export const deleteTodo = (id) => (
+export const deleteTodo = (todo) => (
   $.ajax({
     method: 'DELETE',
-    url: `/todos/${id}`
+    url: `/todos/${todo.id}`
   })
 );
 

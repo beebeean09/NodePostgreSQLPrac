@@ -26546,7 +26546,7 @@ module.exports = toPlainObject;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchTodo = exports.fetchAllTodos = exports.receiveTodo = exports.receiveTodos = exports.RECEIVE_TODO = exports.RECEIVE_TODOS = undefined;
+exports.deleteTodo = exports.updateTodo = exports.createTodo = exports.fetchTodo = exports.fetchAllTodos = exports.removeTodo = exports.receiveTodo = exports.receiveTodos = exports.REMOVE_TODO = exports.RECEIVE_TODO = exports.RECEIVE_TODOS = undefined;
 
 var _todo_util = __webpack_require__(306);
 
@@ -26556,6 +26556,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var RECEIVE_TODOS = exports.RECEIVE_TODOS = "RECEIVE_TODOS";
 var RECEIVE_TODO = exports.RECEIVE_TODO = "RECEIVE_TODO";
+var REMOVE_TODO = exports.REMOVE_TODO = "REMOVE_TODO";
 
 var receiveTodos = exports.receiveTodos = function receiveTodos(todos) {
   return {
@@ -26567,6 +26568,13 @@ var receiveTodos = exports.receiveTodos = function receiveTodos(todos) {
 var receiveTodo = exports.receiveTodo = function receiveTodo(todo) {
   return {
     type: RECEIVE_TODO,
+    todo: todo
+  };
+};
+
+var removeTodo = exports.removeTodo = function removeTodo(todo) {
+  return {
+    type: REMOVE_TODO,
     todo: todo
   };
 };
@@ -26583,6 +26591,30 @@ var fetchTodo = exports.fetchTodo = function fetchTodo(id) {
   return function (dispatch) {
     return TodoUtil.fetchTodo(id).then(function (todo) {
       return dispatch(receiveTodo(todo));
+    });
+  };
+};
+
+var createTodo = exports.createTodo = function createTodo(todo) {
+  return function (dispatch) {
+    return TodoUtil.createTodo(todo).then(function (todo1) {
+      return dispatch(receiveTodo(todo1));
+    });
+  };
+};
+
+var updateTodo = exports.updateTodo = function updateTodo(todo) {
+  return function (dispatch) {
+    return TodoUtil.updateTodo(todo).then(function (todo1) {
+      return dispatch(receiveTodo(todo1));
+    });
+  };
+};
+
+var deleteTodo = exports.deleteTodo = function deleteTodo(todo) {
+  return function (dispatch) {
+    return TodoUtil.deleteTodo(todo).then(function (todo1) {
+      return dispatch(removeTodo(todo1));
     });
   };
 };
@@ -26627,10 +26659,10 @@ var createTodo = exports.createTodo = function createTodo(todo) {
   });
 };
 
-var deleteTodo = exports.deleteTodo = function deleteTodo(id) {
+var deleteTodo = exports.deleteTodo = function deleteTodo(todo) {
   return _ajaxOnly2.default.ajax({
     method: 'DELETE',
-    url: '/todos/' + id
+    url: '/todos/' + todo.id
   });
 };
 
