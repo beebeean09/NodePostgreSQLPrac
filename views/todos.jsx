@@ -48,13 +48,6 @@ class TodosList extends React.Component {
     //     data: { todo }
     //   })
     // );
-    axios.post('http://localhost:3000/todos', todo)
-    .then(res => {
-    this.setState({ data: res });
-    })
-    .catch(err => {
-    console.error(err);
-    });
   }
 
   render() {
