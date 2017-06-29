@@ -10251,11 +10251,13 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _store = __webpack_require__(87);
 
+var _store2 = _interopRequireDefault(_store);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener('DOMContentLoaded', function () {
   var root = document.getElementById('root');
-  var store = (0, _store.configureStore)();
+  var store = (0, _store2.default)();
   window.store = store;
   _reactDom2.default.render(_react2.default.createElement(
     'div',
@@ -24340,7 +24342,7 @@ var _todos_reducer2 = _interopRequireDefault(_todos_reducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var RootReducer = (0, _redux.combineReducer)({
+var RootReducer = (0, _redux.combineReducers)({
   todos: _todos_reducer2.default
 });
 
