@@ -3,7 +3,6 @@ import React from 'react';
 class TodosListItem extends React.Component {
   render() {
     const todo = this.props.todo;
-    debugger;
     return(
       <div>
         TodosListItem

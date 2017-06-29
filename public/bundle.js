@@ -18378,10 +18378,11 @@ var TodosReducer = function TodosReducer() {
   var newState = void 0;
   switch (action.type) {
     case _todos_actions.RECEIVE_TODOS:
-      debugger;
       return (0, _merge2.default)({}, state, { todos: action.todos });
     case _todos_actions.RECEIVE_TODO:
-
+      newState = (0, _merge2.default)({}, state);
+      newState.todos.push([action.todo]);
+      return newState;
     default:
       return state;
   }
@@ -18408,7 +18409,6 @@ var _ajaxOnly2 = _interopRequireDefault(_ajaxOnly);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var fetchAllTodos = exports.fetchAllTodos = function fetchAllTodos() {
-  debugger;
   return _ajaxOnly2.default.ajax({
     method: 'GET',
     url: '/todos'
@@ -33962,7 +33962,6 @@ var TodosListItem = function (_React$Component) {
     key: 'render',
     value: function render() {
       var todo = this.props.todo;
-      debugger;
       return _react2.default.createElement(
         'div',
         null,

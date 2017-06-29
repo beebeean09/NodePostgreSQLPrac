@@ -1,15 +1,11 @@
 import $ from '@rtorr/ajax-only';
 
-export const fetchAllTodos = () => {
-  debugger;
-  return(
+export const fetchAllTodos = () => (
   $.ajax({
     method: 'GET',
     url: '/todos'
   })
 );
-};
-
 
 export const fetchTodo = (id) => (
   $.ajax({

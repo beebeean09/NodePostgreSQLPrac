@@ -6,10 +6,11 @@ const TodosReducer = (state = {todos : []}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_TODOS:
-      debugger;
       return merge({}, state, {todos: action.todos});
     case RECEIVE_TODO:
-
+      newState = merge({}, state);
+      newState.todos.push([action.todo]);
+      return newState;
     default:
       return state;
   }
