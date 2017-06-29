@@ -10259,11 +10259,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var root = document.getElementById('root');
   var store = (0, _store2.default)();
   window.store = store;
-  _reactDom2.default.render(_react2.default.createElement(
-    'div',
-    null,
-    'Hello'
-  ), root);
+  _reactDom2.default.render(_react2.default.createElement(Root, { store: store }), root);
 });
 
 /***/ }),

@@ -6,5 +6,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   const store = configureStore();
   window.store = store;
-  ReactDOM.render(<div>Hello</div>, root);
+  ReactDOM.render(<Root store={store}/>, root);
 });
