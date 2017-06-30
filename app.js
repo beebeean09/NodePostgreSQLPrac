@@ -8,7 +8,7 @@ var port = process.env.API_PORT || 3000;
 var index = require('./routes/index');
 var users = require('./routes/users');
 var todos = require('./routes/todos');
-
+var passport = require('passport');
 var app = express();
 
 // view engine setup
@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname)));
+app.use(passport.initialize());
 
 app.use('/', index);
 app.use('/users', users);
