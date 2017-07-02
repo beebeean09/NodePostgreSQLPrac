@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var todos = require('./routes/todos');
 var passport = require('passport');
 var app = express();
+var session = require('express-session');
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +24,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname)));
+
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
