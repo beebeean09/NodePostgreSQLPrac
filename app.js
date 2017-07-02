@@ -8,6 +8,7 @@ var port = process.env.API_PORT || 3000;
 var index = require('./routes/index');
 var users = require('./routes/users');
 var todos = require('./routes/todos');
+var auth = require('./routes/auth');
 var passport = require('passport');
 var app = express();
 var session = require('express-session');
@@ -34,6 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
+app.use('/auth',  auth);
 app.use('/users', users);
 app.use('/todos', todos);
 
