@@ -9,6 +9,12 @@ CREATE TABLE items (
   complete BOOLEAN
 );
 
+CREATE TABLE users (
+  ID SERIAL PRIMARY KEY,
+  username VARCHAR,
+  password VARCHAR
+);
+
 -- INSERT INTO items (text, complete)
 --   VALUES ('Wash Car', false);
 
