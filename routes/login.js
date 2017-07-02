@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy;
-
+var authHelpers = require('../server/auth/_helpers');
 
 router.post('/login',
   passport.authenticate('local'),
@@ -39,4 +39,18 @@ router.route('/login').post((req, res, next) => {
     }
   })(req, res, next);
 });
+
+router.get('/user', authHelpers.loginRequired, (req, res, next)  => {
+  handleResponse(res, 200, 'success');
+});
+
+router.get('/logout', authHelpers.loginRequired, (req, res, next) => {
+  req.logout();
+  handleResponse(res, 200, 'success');
+});
+
+function handleResponse(res, code, statusMsg) {
+  res.status(code).json({status: statusMsg});
+}
+
 module.exports = router;

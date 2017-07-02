@@ -9,6 +9,12 @@ const options = {};
 
 init();
 
+// Does the username exist?
+// No? false is returned
+// Yes? Does the password match?
+// No? false is returned
+// Yes? The user object is returned
+
 passport.use(new LocalStrategy(options, (username, password, done) => {
   // check to see if the username exists
   knex('users').where({ username }).first()

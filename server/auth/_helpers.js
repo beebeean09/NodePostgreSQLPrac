@@ -16,14 +16,22 @@ function getUser(username) {
   return knex('users').where({username}).first();
 }
 
+// Hashing of password
 function comparePass(userPassword, databasePassword) {
   const bool = bcrypt.compareSync(userPassword, databasePassword);
   if (!bool) throw new Error('Invalid Password.');
   else return true;
 }
 
+// Require login
+function loginRequired(req, res, next) {
+  if (!req.user) return res.status(401).json({status: 'Please log in'});
+  return next();
+}
+
 module.exports = {
   createUser,
   getUser,
-  comparePass
+  comparePass,
+  loginRequired
 };
