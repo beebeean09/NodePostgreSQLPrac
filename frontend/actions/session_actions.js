@@ -18,11 +18,13 @@ export const clearErrors = () => ({
 });
 
 export const signup = user => dispatch => (
-  SessionUtil.signup(user).then(user1 => dispatch(receiveCurrentUser(user1)))
+  SessionUtil.signup(user).then(user1 => dispatch(receiveCurrentUser(user1),
+      errors => dispatch(receiveErrors(errors.responseJSON))))
 );
 
 export const login = user => dispatch => (
-  SessionUtil.login(user).then(user1 => dispatch(receiveCurrentUser(user1)))
+  SessionUtil.login(user).then(user1 => dispatch(receiveCurrentUser(user1),
+      errors => dispatch(receiveErrors(errors.responseJSON))))
 );
 
 export const logout = () => dispatch => (
