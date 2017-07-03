@@ -26,6 +26,8 @@ passport.use(new LocalStrategy({
   }
 ));
 
+
+
 // flash errors or success
 // passport.authenticate('local', { failureFlash: "Invalid Password or Username."});
 // passport.authenticate('local', { successFlash: "Welcome!"});

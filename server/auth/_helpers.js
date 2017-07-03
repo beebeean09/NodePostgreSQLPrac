@@ -1,5 +1,5 @@
-const bcrypt = require('bcryptjs');
-const knex = require('../db/connection');
+const bcrypt = require('bcrypt');
+const knex = require('../../knexfile');
 
 function createUser(req) {
   const salt = bcrypt.genSaltSync();

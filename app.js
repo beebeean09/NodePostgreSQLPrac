@@ -13,6 +13,7 @@ var passport = require('passport');
 var app = express();
 var session = require('express-session');
 
+require('dotenv').config();
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jsx');
@@ -26,13 +27,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname)));
 
-app.use(session({
-  secret: process.env.SECRET_KEY,
-  resave: false,
-  saveUninitialized: true
-}));
+// app.use(session({
+//   secret: process.env.SECRET_KEY,
+//   resave: false,
+//   saveUninitialized: true
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/engex', function(req, res) {
+  res.send(process.env.SECRET_MESSAGE);
+});
 
 app.use('/', index);
 app.use('/auth',  auth);
